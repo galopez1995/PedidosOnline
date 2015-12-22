@@ -67,11 +67,9 @@ _.extend(directory.dao.EmployeeDAO.prototype, {
             }
         );
     },
-
     findById: function(id, callback) {
         this.db.transaction(
             function(tx) {
-
                 var sql = "SELECT e.id, e.firstName, e.lastName, e.title, e.city, e.officePhone, e.cellPhone, e.email, e.managerId, m.firstName managerFirstName, m.lastName managerLastName, count(r.id) reportCount " +
                     "FROM employee e " +
                     "LEFT JOIN employee r ON r.managerId = e.id " +
@@ -87,7 +85,6 @@ _.extend(directory.dao.EmployeeDAO.prototype, {
             }
         );
     },
-
     findByManager: function(managerId, callback) {
         directory.db.transaction(
             function(tx) {
@@ -212,7 +209,6 @@ directory.models.EmployeeCollection = Backbone.Collection.extend({
             self.reset(data);
         });
     }
-
 });
 
 
@@ -235,12 +231,30 @@ directory.views.SearchPage = Backbone.View.extend({
     },
 
     events: {
-        "keyup .search-key": "search"
+        "keyup .search-key": "search",
+        "click .btn_agregar": "add"
     },
 
     search: function(event) {
         var key = $('.search-key').val();
         this.model.findByName(key);
+    },
+    add: function(event) {
+ 
+        //ssssss
+        var employee = new directory.models.Employee({  id:'16',
+                                                        firstName:'andres',
+                                                        lastName:'gomez',
+                                                        title:'tecnologo',
+                                                        managerId:'1',
+                                                        city:'Bogota',
+                                                        officePhone:'123-123-123',
+                                                        cellPhone:'310-573-45-43',
+                                                        email:'aegomez56@misena.edu.co'
+                                                    });
+           
+       
+        console.log(employee.toJSON());
     }
 });
 
@@ -428,9 +442,7 @@ directory.Router = Backbone.Router.extend({
             $(page.el).attr('class', 'page stage-center transition');
             self.currentPage = page;
         });
-
     }
-
 });
 
 // Bootstrap the application
@@ -443,3 +455,6 @@ employeeDAO.populate(function() {
             Backbone.history.start();
         });
 });
+
+//document.body.addEventListener("online", function () {...} 
+//document.body.addEventListener("offline", function () {...}.
