@@ -220,7 +220,7 @@ directory.views.SearchPage = Backbone.View.extend({
     EmployeeListView: directory.views.EmployeeListView,
 
     initialize: function() {
-        this.template = _.template(this.templateLoader.get('search-page'));
+        this.template = _.template(this.templateLoader.get('home'));
     },
 
     render: function(eventName) {
@@ -449,7 +449,7 @@ directory.Router = Backbone.Router.extend({
 directory.db = window.openDatabase("EmployeeDB", "1.0", "Employee Demo DB", 200000);
 var employeeDAO = new directory.dao.EmployeeDAO(directory.db);
 employeeDAO.populate(function() {
-    directory.utils.templateLoader.load(['search-page', 'report-page', 'employee-page', 'employee-list-item'],
+    directory.utils.templateLoader.load(['home', 'report-page', 'employee-page', 'employee-list-item'],
         function() {
             directory.app = new directory.Router();
             Backbone.history.start();
