@@ -33,11 +33,22 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
         <!--=== JavaScript ===-->
+
+        <!--=== PedidosOnline ===-->
         <script type="text/javascript" src="libs/angular.min.js"></script>
+        <script type="text/javascript" src="libs/angular-resource.min.js"></script>
+        <script type="text/javascript" src="libs/angular-route.min.js"></script>
         <script type="text/javascript" src="js/app_angular.js"></script>
 
         <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
+
+
+        <script type="text/javascript" src="libs/underscore-min.js"></script>
+        <script type="text/javascript" src="libs/backbone-min.js"></script>
+        <!--<script type="text/javascript" src="js/app.js"></script>-->
+
+        <!--=== PedidosOnline ===-->
 
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
@@ -122,7 +133,7 @@
                 </ul>
 
                 <!-- Logo -->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#/">
                     <img src="assets/img/logo.png" alt="logo" />
                     <strong>Pedidos</strong>Online
                 </a>
@@ -307,18 +318,18 @@
 
                     <!-- User Login Dropdown -->
                     <li class="dropdown user">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             <!--<img alt="" src="assets/img/avatar1_small.jpg" />-->
                             <i class="icon-male"></i>
-                            <span class="username">John Doe</span>
+                            <span class="username">Admin</span>
                             <i class="icon-caret-down small"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="icon-user"></i> Mi Perfil</a></li>
-                            <li><a href="#"><i class="icon-calendar"></i> Mi Agenda</a></li>
+                            <li><a href="#mi_cuenta"><i class="icon-user"></i> Mi Perfil</a></li>
+                            <li><a href="#calendario"><i class="icon-calendar"></i> Mi Agenda</a></li>
                             <li><a href="#"><i class="icon-tasks"></i> Mis Pedidos</a></li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="icon-key"></i> Cerrar Session</a></li>
+                            <li><a href="login.html"><i class="icon-key"></i> Cerrar Session</a></li>
                         </ul>
                     </li>
                     <!-- /user login dropdown -->
@@ -329,29 +340,27 @@
         </header> <!-- /.header -->
 
         <div id="container">
-            <ng-view></ng-view>
-            <!-- Sidebar -->
             <!-- Menu -->
             <div id="sidebar" class="sidebar-fixed" ng-controller="ControllerMenu">
                 <div id="sidebar-content">
                     <!--=== Navigation ===-->
                     <ul id="nav" ng-controller="menuController">
                         <li class="current">
-                            <a href="index.html">
+                            <a href="#/">
                                 <i class="icon-dashboard"></i>
                                 Inicio
                             </a>
                         </li>
                         <li ng-repeat="menu in menuList">
-                            <a href="javascript:void(0);">
-                                <i class="icon-dashboard"></i>
-                                {{menu.text}}
+                            <a href="{{menu.url}}">
+                                <i class="{{menu.icono}}"></i>
+                                {{menu.nombre_opcion}}
                             </a>
                             <ul class="sub-menu" ng-if="menu.isSubmenu">
                                 <li ng-repeat="sub in menu.submenu">
-                                    <a href="#">
-                                        <i class="icon-angle-right"></i>
-                                        {{sub.text}}
+                                    <a href="{{sub.url}}">
+                                        <i class="{{sub.icono}}"></i>
+                                        {{sub.nombre_opcion}}
                                     </a>
                                 </li>
                             </ul>
@@ -375,29 +384,30 @@
                     <div class="sidebar-widget align-center">
                         <div class="btn-group" data-toggle="buttons" id="theme-switcher">
                             <label class="btn active">
-                                <input type="radio" name="theme-switcher" data-theme="bright"><i class="icon-sun"></i> Bright
+                                <input type="radio" name="theme-switcher" data-theme="bright"><i class="icon-sun"></i> D&iacuote;a
                             </label>
                             <label class="btn">
-                                <input type="radio" name="theme-switcher" data-theme="dark"><i class="icon-moon"></i> Dark
+                                <input type="radio" name="theme-switcher" data-theme="dark"><i class="icon-moon"></i> Noche
                             </label>
                         </div>
                     </div>
                 </div>
                 <div id="divider" class="resizeable"></div>
             </div>
-            <!-- /Sidebar -->
+            <!-- /Menu -->
 
+            <!-- Container -->
             <div id="content">
-                <div class="container">
-                    <ng-view></ng-view>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="container">
+                            <br/>
+                            <ng-view></ng-view>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.container -->
             </div>
+            <!-- /.Container -->
         </div>
-
-        <script type="text/javascript" src="libs/underscore-min.js"></script>
-        <script type="text/javascript" src="libs/backbone-min.js"></script>
-
-        <!--<script type="text/javascript" src="js/app.js"></script>-->
     </body>
 </html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap/dist/css/bootstrap.css">
+	<title>T_PEDIDO_DETALLE</title>
+</head>
+<body>
+<table class="table">
+	<tr>
+		<td>rowid_pedido</td>
+		<td><input class="form-control" id="rowid_pedido"></td>
+	</tr>
+	<tr>
+		<td>rowid_bodega</td>
+		<td><input class="form-control" id="rowid_bodega"></td>
+	</tr>
+	<tr>
+		<td>rowid_item</td>
+		<td><input class="form-control" id="rowid_item"></td>
+	</tr>
+	<tr>
+		<td>linea_descripcion</td>
+		<td><input class="form-control" id="linea_descripcion"></td>
+	</tr>
+	<tr>
+		<td>id_unidad</td>
+		<td><input class="form-control" id="id_unidad"></td>
+	</tr>
+	<tr>
+		<td>cantidad</td>
+		<td><input class="form-control" id="cantidad"></td>
+	</tr>
+	<tr>
+		<td>factor</td>
+		<td><input class="form-control" id="factor"></td>
+	</tr>
+	<tr>
+		<td>cantidad_base</td>
+		<td><input class="form-control" id="cantidad_base"></td>
+	</tr>
+	<tr>
+		<td>precio_unitario</td>
+		<td><input class="form-control" id="precio_unitario"></td>
+	</tr>
+	<tr>
+		<td>id_motivo</td>
+		<td><input class="form-control" id="id_motivo"></td>
+	</tr>
+	<tr>
+		<td>stock</td>
+		<td><input class="form-control" id="stock"></td>
+	</tr>
+	<tr>
+		<td>valor_base</td>
+		<td><input class="form-control" id="valor_base"></td>
+	</tr>
+	<tr>
+		<td>valor_impuesto</td>
+		<td><input class="form-control" id="valor_impuesto"></td>
+	</tr>
+	<tr>
+		<td>porcen_descuento</td>
+		<td><input class="form-control" id="porcen_descuento"></td>
+	</tr>
+	<tr>
+		<td>valor_porcen_descuento</td>
+		<td><input class="form-control" id="valor_porcen_descuento"></td>
+	</tr>
+	<tr>
+		<td>valor_descuento</td>
+		<td><input class="form-control" id="valor_descuento"></td>
+	</tr>
+	<tr>
+		<td>valor_total_linea</td>
+		<td><input class="form-control" id="valor_total_linea"></td>
+	</tr>
+	<tr>
+		<td>fechacreacion</td>
+		<td><input class="form-control" id="fechacreacion"></td>
+	</tr>
+	<tr>
+		<td>usuariocreacion</td>
+		<td><input class="form-control" id="usuariocreacion"></td>
+	</tr>
+	<tr>
+		<td>fechamod</td>
+		<td><input class="form-control" id="fechamod"></td>
+	</tr>
+	<tr>
+		<td>usuariomod</td>
+		<td><input class="form-control" id="usuariomod"></td>
+	</tr>
+	<tr>
+		<td>rowid_item_ext</td>
+		<td><input class="form-control" id="rowid_item_ext"></td>
+	</tr>
+	<tr>
+		<td>item_ext1</td>
+		<td><input class="form-control" id="item_ext1"></td>
+	</tr>
+	<tr>
+		<td>item_ext2</td>
+		<td><input class="form-control" id="item_ext2"></td>
+	</tr>
+	<tr>
+		<td>num_lote</td>
+		<td><input class="form-control" id="num_lote"></td>
+	</tr>
+	<tr>
+		<td>fecha_anulacion</td>
+		<td><input class="form-control" id="fecha_anulacion"></td>
+	</tr>
+	<tr>
+		<td>usuario_anulacion</td>
+		<td><input class="form-control" id="usuario_anulacion"></td>
+	</tr>
+	<tr>
+		<td><button class="btn btn-primary guardar">GUARDAR</button></td>
+	</tr>
+</table>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>rowid</td>
+			<td>rowid_pedido</td>
+			<td>rowid_bodega</td>
+			<td>rowid_item</td>
+			<td>linea_descripcion</td>
+			<td>id_unidad</td>
+			<td>cantidad</td>
+			<td>factor</td>
+			<td>cantidad_base</td>
+			<td>precio_unitario</td>
+			<td>id_motivo</td>
+			<td>stock</td>
+			<td>valor_base</td>
+			<td>valor_impuesto</td>
+			<td>porcen_descuento</td>
+			<td>valor_procen_descuento</td>
+			<td>valor_descuento</td>
+			<td>valor_total_linea</td>
+			<td>fechacreacion</td>
+			<td>usuariocreacion</td>
+			<td>fechamod</td>
+			<td>usuariomod</td>
+			<td>rowid_item_ext</td>
+			<td>item_ext1</td>
+			<td>item_ext2</td>
+			<td>num_lote</td>
+			<td>fecha_anulacion</td>
+			<td>usuario_anulacion</td>
+			<td>Accion</td>
+		</tr>
+	</thead>
+	<tbody class="detalle-list"></tbody>
+</table>
+
+<script type="text/template" class="detalle-list-template">
+	<td><span class="rowid"><%=rowid%></span></td>
+	<td><span class="rowid_pedido"><%=rowid_pedido%></span></td>
+	<td><span class="rowid_bodega"><%=rowid_bodega%></span></td>
+	<td><span class="rowid_item"><%=rowid_item%></span></td>
+	<td><span class="linea_descripcion"><%=linea_descripcion%></span></td>
+	<td><span class="id_unidad"><%=id_unidad%></span></td>
+	<td><span class="cantidad"><%=cantidad%></span></td>
+	<td><span class="factor"><%=factor%></span></td>
+	<td><span class="cantidad_base"><%=cantidad_base%></span></td>
+	<td><span class="precio_unitario"><%=precio_unitario%></span></td>
+	<td><span class="id_motivo"><%=id_motivo%></span></td>
+	<td><span class="stock"><%=stock%></span></td>
+	<td><span class="valor_base"><%=valor_base%></span></td>
+	<td><span class="valor_impuesto"><%=valor_impuesto%></span></td>
+	<td><span class="porcen_descuento"><%=porcen_descuento%></span></td>
+	<td><span class="valor_porcen_descuento"><%=valor_porcen_descuento%></span></td>
+	<td><span class="valor_descuento"><%=valor_descuento%></span></td>
+	<td><span class="valor_total_linea"><%=valor_total_linea%></span></td>
+	<td><span class="fechacreacion"><%=fechacreacion%></span></td>
+	<td><span class="usuariocreacion"><%=usuariocreacion%></span></td>
+	<td><span class="fechamod"><%=fechamod%></span></td>
+	<td><span class="usuariomod"><%=usuariomod%></span></td>
+	<td><span class="rowid_item_ext"><%=rowid_item_ext%></span></td>
+	<td><span class="item_ext1"><%=item_ext1%></span></td>
+	<td><span class="item_ext2"><%=item_ext2%></span></td>
+	<td><span class="num_lote"><%=num_lote%></span></td>
+	<td><span class="fecha_anulacion"><%=fecha_anulacion%></span></td>
+	<td><span class="usuario_anulacion"><%=usuario_anulacion%></span></td>
+	<td><button class="btn btn-warning edit-detalle">Edit</button><button class="btn btn-danger delete-detalle">Delete</button><button class="btn btn-success update-detalle" style="display:none">Update</button> <button class="btn btn-danger cancel" style="display:none">Cancel</button></td>
+</script>
+
+
+<script type="text/javascript" src="../libs/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../libs/underscore-min.js"></script>
+<script type="text/javascript" src="../libs/backbone-min.js"></script>
+<script type="text/javascript" src="../js/database.js"></script>
+<script type="text/javascript" src="../js/t_pedidos_detalle.js"></script>
+
+
+</body>
+</html>

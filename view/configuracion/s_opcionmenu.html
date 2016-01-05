@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap/dist/css/bootstrap.css">
+	<title></title>
+</head>
+<body>
+<table class="table">
+	<tr>
+		<td>rowid_opcionpadre</td>
+		<td><input class="form-control" id="rowid_opcionpadre"></td>
+	</tr>
+	<tr>
+		<td>nombre_opcion</td>
+		<td><input class="form-control" id="nombre_opcion"></td>
+	</tr>
+	<tr>
+		<td>ind_activo</td>
+		<td><input class="form-control" id="ind_activo"></td>
+	</tr>
+	<tr>
+		<td>numorden</td>
+		<td><input class="form-control" id="numorden"></td>
+	</tr>
+	<tr>
+		<td>url_link</td>
+		<td><input class="form-control" id="url_link"></td>
+	</tr>
+	<tr>
+		<td>texto_ayuda</td>
+		<td><input class="form-control" id="texto_ayuda"></td>
+	</tr>
+	<tr>
+		<td>fechacreacion</td>
+		<td><input class="form-control" id="fechacreacion"></td>
+	</tr>
+	<tr>
+		<td>usuariocreacion</td>
+		<td><input class="form-control" id="usuariocreacion"></td>
+	</tr>
+	<tr>
+		<td>fechamod</td>
+		<td><input class="form-control" id="fechamod"></td>
+	</tr>
+	<tr>
+		<td>usuariomod</td>
+		<td><input class="form-control" id="usuariomod"></td>
+	</tr>
+	<tr>
+		<td>icono</td>
+		<td><input class="form-control" id="icono"></td>
+	</tr>
+	<tr>
+		<td>bgcolor</td>
+		<td><input class="form-control" id="bgcolor"></td>
+	</tr>
+	<tr>
+		<td>fgcolor</td>
+		<td><input class="form-control" id="fgcolor"></td>
+	</tr>
+	<tr>
+		<td><button class="btn btn-primary guardar">Guardar</button></td>
+	</tr>
+</table>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<td>rowid</td>
+			<td>rowid_opcionpadre</td>
+			<td>nombre_opcion</td>
+			<td>ind_activo</td>
+			<td>numorden</td>
+			<td>url_link</td>
+			<td>texto_ayuda</td>
+			<td>fechacreacion</td>
+			<td>usuariocreacion</td>
+			<td>fechamod</td>
+			<td>usuariomod</td>
+			<td>icono</td>
+			<td>bgcolor</td>
+			<td>fgcolor</td>
+			<td>Accion</td>
+		</tr>
+	</thead>
+	<tbody class="opcionmenu-list"></tbody>
+</table>
+<script type="text/template" class="opcionmenu-list-template">
+	<td><span class="rowid"><%=rowid%></span></td>
+	<td><span class="rowid_opcionpadre"><%=rowid_opcionpadre%></span></td>
+	<td><span class="nombre_opcion"><%=nombre_opcion%></span></td>
+	<td><span class="ind_activo"><%=ind_activo%></span></td>
+	<td><span class="numorden"><%=numorden%></span></td>
+	<td><span class="url_link"><%=url_link%></span></td>
+	<td><span class="texto_ayuda"><%=texto_ayuda%></span></td>
+	<td><span class="fechacreacion"><%=fechacreacion%></span></td>
+	<td><span class="usuariocreacion"><%=usuariocreacion%></span></td>
+	<td><span class="fechamod"><%=fechamod%></span></td>
+	<td><span class="usuariomod"><%=usuariomod%></span></td>
+	<td><span class="icono"><%=icono%></span></td>
+	<td><span class="bgcolor"><%=bgcolor%></span></td>
+	<td><span class="fgcolor"><%=fgcolor%></span></td>
+	<td><button class="btn btn-warning edit-opcionmenu">Edit</button><button class="btn btn-danger delete-opcionmenu">Delete</button><button class="btn btn-success update-opcionmenu" style="display:none">Update</button> <button class="btn btn-danger cancel" style="display:none">Cancel</button></td>
+</script>
+
+<script type="text/javascript" src="../libs/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../libs/underscore-min.js"></script>
+<script type="text/javascript" src="../libs/backbone-min.js"></script>
+<script type="text/javascript" src="../js/database.js"></script>
+<script type="text/javascript" src="../js/s_opcionmenu.js"></script>
+</body>
+</html>
