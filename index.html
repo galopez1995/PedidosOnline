@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <base href="/PedidosOnline/">
         <title>PedidosOnline</title>
 
         <!--=== CSS ===-->
@@ -13,7 +14,7 @@
         <!-- jQuery UI -->
         <!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
         <!--[if lt IE 9]>
-            <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+        <link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
         <![endif]-->
 
         <!-- Theme -->
@@ -24,11 +25,11 @@
 
         <link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
         <!--[if IE 7]>
-            <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
+        <link rel="stylesheet" href="assets/css/fontawesome/font-awesome-ie7.min.css">
         <![endif]-->
 
         <!--[if IE 8]>
-            <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/ie8.css" rel="stylesheet" type="text/css" />
         <![endif]-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
@@ -38,24 +39,20 @@
         <script type="text/javascript" src="libs/angular.min.js"></script>
         <script type="text/javascript" src="libs/angular-resource.min.js"></script>
         <script type="text/javascript" src="libs/angular-route.min.js"></script>
-        <script type="text/javascript" src="js/app_angular.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
 
         <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
 
-
         <script type="text/javascript" src="libs/underscore-min.js"></script>
         <script type="text/javascript" src="libs/backbone-min.js"></script>
-        <!--<script type="text/javascript" src="js/app.js"></script>-->
-
-        <!--=== PedidosOnline ===-->
 
         <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
-            <script src="assets/js/libs/html5shiv.js"></script>
+        <script src="assets/js/libs/html5shiv.js"></script>
         <![endif]-->
 
         <!-- Smartphone Touch Events -->
@@ -73,7 +70,7 @@
         <!-- Page specific plugins -->
         <!-- Charts -->
         <!--[if lt IE 9]>
-            <script type="text/javascript" src="plugins/flot/excanvas.min.js"></script>
+        <script type="text/javascript" src="plugins/flot/excanvas.min.js"></script>
         <![endif]-->
         <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
         <script type="text/javascript" src="plugins/flot/jquery.flot.min.js"></script>
@@ -87,18 +84,22 @@
         <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
         <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
 
-
-        <script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
-
-        <script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
-        <script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
-        <script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
-
         <script type="text/javascript" src="plugins/fullcalendar/fullcalendar.min.js"></script>
 
         <!-- Noty -->
         <script type="text/javascript" src="plugins/noty/jquery.noty.js"></script>
         <script type="text/javascript" src="plugins/noty/layouts/top.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/topCenter.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/topLeft.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/topRight.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/inline.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/centerRight.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/centerLeft.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/center.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottomRight.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottomLeft.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottomCenter.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottom.js"></script>
         <script type="text/javascript" src="plugins/noty/themes/default.js"></script>
 
         <!-- Forms -->
@@ -111,36 +112,125 @@
         <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
 
         <script>
-        $(document).ready(function(){
-            "use strict";
+            $(document).ready(function(){
+                "use strict";
 
-            App.init(); // Init layout and core plugins
-            Plugins.init(); // Init all plugins
-            FormComponents.init(); // Init all form-specific plugins
-        });
+                App.init(); // Init layout and core plugins
+                Plugins.init(); // Init all plugins
+                FormComponents.init(); // Init all form-specific plugins
+            });
         </script>
 
         <!-- Demo JS -->
         <script type="text/javascript" src="assets/js/custom.js"></script>
-        <!--<script type="text/javascript" src="assets/js/demo/pages_calendar.js"></script>-->
+        <script type="text/javascript" src="assets/js/demo/charts.js"></script>
         <script type="text/javascript" src="assets/js/demo/charts/chart_filled_blue.js"></script>
-        <script type="text/javascript" src="assets/js/demo/charts/chart_simple.js"></script>
+        <!--<script type="text/javascript" src="assets/js/demo/charts/chart_simple.js"></script>-->
+
+        <style type="text/css">
+            #cargando {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url('assets/img/loading.gif') 50% 50% no-repeat rgb(0,0,0);
+                opacity: 0.5;
+            }
+
+            /*label.error {
+                border: 0px solid red;
+                color: red;
+            }
+
+            input:required:valid {
+                border: 1px solid green;
+            }*/
+
+            .ui-autocomplete-loading { background:url('assets/img/auto_loader.gif') no-repeat right center; }
+        </style>
+
+
+        <script>
+
+            $(window).load(function () {
+                $("#cargando").fadeOut("slow");
+            });
+
+            // Muestra Modal Procesando
+            function ProcesadoShow() {
+                $("#ModalProcessing").modal()                       // initialized with defaults
+                $("#ModalProcessing").modal({ backdrop: 'static', keyboard: false })   // initialized with no keyboard
+                $("#ModalProcessing").modal('show')
+            }
+
+            // Oculta Modal de procesando
+            function ProcesadoHiden() {
+                $("#ModalProcessing").modal('hide');
+            }
+
+            // Genera Los Mensajes de Alertas
+            function Mensajes(text, type, layot) {
+                if(layot=='' || layot==null)
+                    layot='bottomRight';
+
+                var self = $(this);
+                noty({
+                    text: text,
+                    type: type,
+                    theme: 'defaultTheme',
+                    layout: layot,
+                    timeout: 10000,
+                    modal: self.data('modal')
+                });
+
+                return false;
+            }
+
+            // Genera Alertas con estilo de la plantilla
+            function MostrarAlerta(msj) {
+                bootbox.alert(msj, function () {
+                    console.log("Alert Callback");
+                });
+            }
+
+            // Genera mensajes de confirmacion con el estilo de la plantilla
+            function Confirmar(msj){
+                bootbox.confirm(msj, function (confirmed) {
+                    //console.log("Confirmed: " + confirmed);
+                    return confirmed;
+                });
+            }
+
+            // Valida Campos Numericos
+            function SoloNumeros(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+            }
+
+            // Genera GUID
+            function Aleatorio(inferior, superior) {
+                var numPosibilidades = superior - inferior
+                var aleat = Math.random() * numPosibilidades
+                aleat = Math.round(aleat)
+                return parseInt(inferior) + aleat
+            }
+        </script>
     </head>
-
     <body>
-
         <!-- Header -->
         <header class="header navbar navbar-fixed-top" role="banner">
             <!-- Top Navigation Bar -->
             <div class="container">
-
                 <!-- Only visible on smartphones, menu toggle -->
                 <ul class="nav navbar-nav">
                     <li class="nav-toggle"><a href="javascript:void(0);" title=""><i class="icon-reorder"></i></a></li>
                 </ul>
 
                 <!-- Logo -->
-                <a class="navbar-brand" href="#/">
+                <a class="navbar-brand" href="view/home/home.html">
                     <img src="assets/img/logo.png" alt="logo" />
                     <strong>Pedidos</strong>Online
                 </a>
@@ -332,9 +422,9 @@
                             <i class="icon-caret-down small"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#mi_cuenta"><i class="icon-user"></i> Mi Perfil</a></li>
-                            <li><a href="#calendario"><i class="icon-calendar"></i> Mi Agenda</a></li>
-                            <li><a href="#"><i class="icon-tasks"></i> Mis Pedidos</a></li>
+                            <li><a href="configuracion/mi_cuenta"><i class="icon-user"></i> Mi Perfil</a></li>
+                            <li><a href="crm/calendario"><i class="icon-calendar"></i> Mi Agenda</a></li>
+                            <li><a href="ventas/pedidos_ingresados"><i class="icon-tasks"></i> Mis Pedidos</a></li>
                             <li class="divider"></li>
                             <li><a href="login.html"><i class="icon-key"></i> Cerrar Session</a></li>
                         </ul>
@@ -348,12 +438,12 @@
 
         <div id="container">
             <!-- Menu -->
-            <div id="sidebar" class="sidebar-fixed" ng-controller="ControllerMenu">
+            <div id="sidebar" class="sidebar-fixed">
                 <div id="sidebar-content">
                     <!--=== Navigation ===-->
                     <ul id="nav" ng-controller="menuController">
                         <li class="current">
-                            <a href="#/">
+                            <a href="view/home/home.html">
                                 <i class="icon-dashboard"></i>
                                 Inicio
                             </a>
@@ -405,12 +495,13 @@
 
             <!-- Container -->
             <div id="content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="container" ng-cloak>
-                            <br/>
-                            <ng-view></ng-view>
-                        </div>
+                <div class="container" id="views">
+                    <br/>
+                    <ng-view></ng-view>
+
+                    <div id="DivLoadingPage"></div>
+                    <div class="modal fade"  data-backdrop="static" data-keyboard="false"  id="ModalProcessing" style="overflow:hidden; text-align:center;" >
+                        <img src="assets/img/loading.gif" alt="Loading" style="display: block;margin-left: auto; margin-right: auto; margin-top: 250px;">
                     </div>
                 </div>
             </div>

@@ -30,21 +30,23 @@ $(document).ready(function(){
 	});
 
 	//===== Sparklines =====//
-
+	setTimeout(function() {
 	$("#sparkline-bar").sparkline('html', {
 		type: 'bar',
 		height: '35px',
 		zeroAxis: false,
 		barColor: App.getLayoutColorCode('red')
 	});
+	}, 1000);
 
+	setTimeout(function() {
 	$("#sparkline-bar2").sparkline('html', {
 		type: 'bar',
 		height: '35px',
 		zeroAxis: false,
 		barColor: App.getLayoutColorCode('green')
 	});
-
+	}, 1000);
 	//===== Refresh-Button on Widgets =====//
 
 	$('.widget .toolbar .widget-refresh').click(function() {
