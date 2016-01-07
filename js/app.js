@@ -16,7 +16,7 @@ app.config(['$routeProvider','$locationProvider',
                     urlattr.modulo = 'home';
                     urlattr.urlurl = 'home';
                 }
-                return 'view/'+ urlattr.modulo+'/' + urlattr.url + '.html';
+                return ''+ urlattr.modulo+'/' + urlattr.url + '.html';
             }
         })
         .otherwise("/");
@@ -29,19 +29,6 @@ app.config(['$routeProvider','$locationProvider',
 //CONTROLADOR DE GENERAL
 app.controller('appController', function($scope){
 
-    $("#sparkline-bar").sparkline('html', {
-        type: 'bar',
-        height: '35px',
-        zeroAxis: false,
-        barColor: App.getLayoutColorCode('red')
-    });
-
-    $("#sparkline-bar2").sparkline('html', {
-        type: 'bar',
-        height: '35px',
-        zeroAxis: false,
-        barColor: App.getLayoutColorCode('green')
-    });
 
 });
 
