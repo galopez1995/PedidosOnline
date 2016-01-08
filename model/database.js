@@ -1,7 +1,8 @@
 
 var db = window.openDatabase("MODELO1", "1.0", "MODELO1", 200000);
 db.transaction(function (tx) {
-	var query="create table if not exists erp_terceros ("+
+	var query=
+					"create table if not exists erp_terceros ("+
 					"rowid integer primary key autoincrement , "+
 					"rowid_empresa integer, "+
 					"id_cia integer, "+
@@ -133,7 +134,89 @@ db.transaction(function (tx) {
 					"cantidad_embalaje integer)";
 				tx.executeSql(query);
 
-})
+				var query="create table if not exists erp_items_precios("+
+					"rowid integer primary key autoincrement,"+
+					"rowid_empresa integer not null,"+
+					"id_cia integer not null,"+
+					"id_lista_precios varchar (50) not null,"+
+					"rowid_item integer not null,"+
+					"rowid_item_ext integer null,"+
+					"id_unidad  varchar (10) not null,"+
+					"precio_lista float not null,"+
+					"fechacreacion date not null,"+
+					"usuariocreacion varchar (50) not null,"+
+					"fechamod date null,"+
+					"usuariomod varchar (50) null )";
+				
+				tx.executeSql(query);
+				var query="create table if not exists m_empresas_config ("+
+				"rowid integer primary key autoincrement,"+
+				"id_tipo_erp varchar (50) null,"+
+				"rowid_empresa integer null,"+
+				"step varchar (100) null,"+
+				"secuencia integer null,"+
+				"tiporeg varchar (50) null,"+
+				"parametros text null,"+
+				"ind_activo integer not null,"+
+				"fechacreacion date not null)";
+				
+				tx.executeSql(query);
+				var query="create table if not exists m_modulos_config ("+
+				"rowid integer primary key autoincrement,"+
+				"modulo varchar (50) not null,"+
+				"campo varchar (50) not null,"+
+				"ind_ocultar integer not null,"+
+				"valor_defecto varchar (50) null," +
+				"usuario_creacion varchar (50) not null,"+
+				"fecha_creacion date null,"+
+				"usuario_modificacion varchar (50) null,"+
+				"fecha_modificacion date null)";
+				tx.executeSql(query);
+				var query="create table if not exists erp_entidades_master("+
+				"rowid integer primary key autoincrement,"+
+				"id_tipo_maestro varchar (50) not null,"+
+				"rowid_empresa integer not null,"+
+				"erp_id_cia integer not null,"+
+				"erp_rowid_maestro integer null,"+
+				"erp_id_maestro varchar (30) null,"+
+				"erp_descripcion varchar (255) null,"+
+				"custom1 varchar (20) null,"+
+				"email varchar (255) null,"+
+				"fechacreacion date not null,"+
+				"usuariocreacion varchar (50) not null,"+
+				"fechamod date null,"+
+				"usuariomod date null,"+
+				"ind_disabled  bit not null,"+
+				"custom2 varchar (20) null,"+
+				"custom3 varchar (30) null)";
+				tx.executeSql(query);
+				var query="create table if not exists s_parametros ("+
+					"rowid integer primary key autoincrement,"+
+					"rowid_empresa integer null,"+
+					"cod_parametro varchar (45) null,"+
+					"nombre_parametro varchar (500) not null,"+
+					"valor_parametro text)";
+				tx.executeSql(query); 
+				var query="create table if not exists l_log_eventos("+
+					"rowid integer primary key autoincrement,"+
+					"rowid_empresa integer not null,"+
+					"id_log varchar (20) not null,"+
+					"id_tipo_entidad varchar (20) null,"+
+					"rowid_entidad integer null,"+
+					"nombre_campo varchar (50) null,"+
+					"valor_campo varchar (50)null,"+
+					"observaciones text null,"+
+					"fechacreacion date not null,"+
+					"usuariocreacion varchar (50) not null)";
+				console.log(query);
+				tx.executeSql(query);
+
+},
+function (tx,error) {
+	// body...
+	console.log(error);
+}
+)
 
 	
 				

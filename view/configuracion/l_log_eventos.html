@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap/dist/css/bootstrap.css">
+	<title></title>
+</head>
+<body>
+
+<table class="table">
+	<thead>
+		<tr>
+		<td>rowid</td>
+		<td>rowid_empresa</td>
+		<td>id_log</td>
+		<td>id_tipo_entidad</td>
+		<td>rowid_entidad</td>
+		<td>nombre_campo</td>
+		<td>valor_campo</td>
+		<td>observaciones</td>
+		<td>fechacreacion</td>
+		<td>usuariocreacion</td>
+		<td>Accion</td>
+	</tr>
+	<tr>
+		<td><input class="form-control" id="rowid"></td>
+		<td><input class="form-control" id="rowid_empresa"></td>
+		<td><input class="form-control" id="id_log"></td>
+		<td><input class="form-control" id="id_tipo_entidad"></td>
+		<td><input class="form-control" id="rowid_entidad"></td>
+		<td><input class="form-control" id="nombre_campo"></td>
+		<td><input class="form-control" id="valor_campo"></td>
+		<td><input class="form-control" id="observaciones"></td>
+		<td><input class="form-control" id="fechacreacion"></td>
+		<td><input class="form-control" id="usuariocreacion"></td>
+		<td><button class="btn btn-primary guardar">Guardar</button></td>
+	</tr>
+	</thead>
+	<tbody class="eventos-list">
+	</tbody>
+</table>
+
+<script type="text/template " class="eventos-list-template">
+	<td><span class="rowid"><%=rowid%></span></td>
+	<td><span class="rowid_empresa"><%=rowid_empresa%></span></td>
+	<td><span class="id_log"><%=id_log%></span></td>
+	<td><span class="id_tipo_entidad"><%=id_tipo_entidad%></span></td>
+	<td><span class="rowid_entidad"><%=rowid_entidad%></span></td>
+	<td><span class="nombre_campo"><%=nombre_campo%></span></td>
+	<td><span class="valor_campo"><%=valor_campo%></span></td>
+	<td><span class="observaciones"><%=observaciones%></span></td>
+	<td><span class="fechacreacion"><%=fechacreacion%></span></td>
+	<td><span class="usuariocreacion"><%=usuariocreacion%></span></td>
+	<td><button class="btn btn-warning edit-eventos">Editar</button><button class="btn btn-danger delete-eventos">Eliminar</button><button class="btn btn-success update-eventos" style="display:none">Actualizar</button><button class="btn btn-danger cancel-eventos" style="display:none">Cancelar</button></td>
+</script>
+<script type="text/javascript" src="../libs/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../libs/underscore-min.js"></script>
+<script type="text/javascript" src="../libs/backbone-min.js"></script>
+<script type="text/javascript" src="../js/database.js"></script>
+<script type="text/javascript" src="../js/l_log_eventos.js"></script>
+</body>
+</html>

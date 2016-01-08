@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap/dist/css/bootstrap.css">
+	<title></title>
+</head>
+<body>
+
+<table class="table">
+	<thead>
+		<tr>
+		<td>rowid</td>
+		<td>id_tipo_erp</td>
+		<td>rowid_empresa</td>
+		<td>step</td>
+		<td>secuencia</td>
+		<td>tiporeg</td>
+		<td>parametros</td>
+		<td>ind_activo</td>
+		<td>fechacreacion</td>
+		<td>Accion</td>
+	</tr>
+	<tr>
+		<td><input class="form-control" id="rowid"></td>
+		<td><input class="form-control" id="id_tipo_erp"></td>
+		<td><input class="form-control" id="rowid_empresa"></td>
+		<td><input class="form-control" id="step"></td>
+		<td><input class="form-control" id="secuencia"></td>
+		<td><input class="form-control" id="tiporeg"></td>
+		<td><input class="form-control" id="parametros"></td>
+		<td><input class="form-control" id="ind_activo"></td>
+		<td><input class="form-control" id="fechacreacion"></td>
+		<td><button class="btn btn-primary guardar">Guardar</button></td>
+	</tr>
+	</thead>
+	<tbody class="empresa-list">
+	</tbody>
+</table>
+
+<script type="text/template " class="empresa-list-template">
+	<td><span class="rowid"><%=rowid%></span></td>
+	<td><span class="id_tipo_erp"><%=id_tipo_erp%></span></td>
+	<td><span class="rowid_empresa"><%=rowid_empresa%></span></td>
+	<td><span class="step"><%=step%></span></td>
+	<td><span class="secuencia"><%=secuencia%></span></td>
+	<td><span class="tiporeg"><%=tiporeg%></span></td>
+	<td><span class="parametros"><%=parametros%></span></td>
+	<td><span class="ind_activo"><%=ind_activo%></span></td>
+	<td><span class="fechacreacion"><%=fechacreacion%></span></td>
+	<td><button class="btn btn-warning edit-empresa">Editar</button><button class="btn btn-danger delete-empresa">Eliminar</button><button class="btn btn-success update-empresa" style="display:none">Actualizar</button><button class="btn btn-danger cancel-empresa" style="display:none">Cancelar</button></td>
+</script>
+
+
+<script type="text/javascript" src="../libs/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../libs/underscore-min.js"></script>
+<script type="text/javascript" src="../libs/backbone-min.js"></script>
+<script type="text/javascript" src="../js/database.js"></script>
+<script type="text/javascript" src="../js/m_empresas_config.js"></script>
+
+
+</body>
+</html>

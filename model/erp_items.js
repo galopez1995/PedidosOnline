@@ -300,6 +300,7 @@ directory.models.View_Item=Backbone.View.extend({
 		
 	},
 	update: function() {
+
 		var ModificarItem=new directory.models.erp_items({
 			rowid:$('.rowid-update').val(),
 			rowid_empresa:$('.rowid_empresa-update').val(),
@@ -334,6 +335,7 @@ directory.models.View_Item=Backbone.View.extend({
 		var Listar=new directory.models.AllItem();
 	},
 	cancel: function() {
+
 		var Listar=new directory.models.AllItem();
 		Listar.render();
 	},
@@ -345,6 +347,8 @@ directory.models.View_Item=Backbone.View.extend({
 		var LoadListar=new directory.models.EjecutarColection();
 		var Listar=new directory.models.AllItem();
 		Listar.render();
+
+	
 	},
 	render:function(){
 		this.$el.html(this.template(this.model.toJSON()));
@@ -377,6 +381,8 @@ directory.models.AllItem = Backbone.View.extend({
 
 var Listar=new directory.models.AllItem();
 
+
+
 $(document).ready(function() {
 	$('.guardar').on('click', function() {
 		var erp_items=new directory.models.erp_itemsCollection();
@@ -407,6 +413,10 @@ $(document).ready(function() {
 			cantidad_embalaje	:$('#cantidad_embalaje').val()
 		})
 		alert('INSERTADO CON EXITO');
+		
+		var LoadListar=new directory.models.EjecutarColection();
+
+		var Listar=new directory.models.AllItem();
 	});
 })
 

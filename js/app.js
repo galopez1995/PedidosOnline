@@ -14,6 +14,9 @@ app.config(['$routeProvider',//'$locationProvider',
         .when("/:modulo/:url",{
             controller:'appController',
             templateUrl: function(urlattr){
+                if(urlattr.modulo=='pagina_Actual')
+                    return '#'+ urlattr.url;
+
                 if(urlattr.modulo=='' || urlattr.url=='') {
                     urlattr.modulo = 'home';
                     urlattr.urlurl = 'home';
@@ -32,6 +35,8 @@ app.config(['$routeProvider',//'$locationProvider',
 app.controller('appController', function($scope){
     //===== Sidebar Search (Demo Only) =====//
     angular.element(document).ready(function() {
+
+        angular.element('select').select2();
 
         angular.element('.sidebar-search').submit(function (e) {
             //e.preventDefault(); // Prevent form submitting (browser redirect)
@@ -156,7 +161,7 @@ app.controller('calendarioController', function($scope){
 
     var h = {};
 
-    if ($('#calendar').width() <= 400) {
+    if (angular.element('#calendar').width() <= 400) {
         h = {
             left: 'title',
             center: '',
