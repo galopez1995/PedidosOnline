@@ -1,29 +1,16 @@
 /**
  * Created by dev10 on 1/7/2016.
  */
-var app= angular.module('PedidosOnline');
+var app_angular= angular.module('PedidosOnline');
 
 
 //CONTROLADOR DEL MOULO DE VENTAS
-app.controller('pedidoController', function($scope,$http){
+app_angular.controller('pedidoController', function($scope,$http){
 
-   /* angular.element('#tab_pedido a').click(function (e) {
-        debugger;
-        e.preventDefault()
-        $(this).tab('show')
-    });
-*/
-    $scope.GuardarEncabezadoPedido = function(e){
-
-        alert('pedido guardado');
-        /* PostResource.save({data:$scope.post},function(data){
-         console.log(data);
-         });*/
-    };
-
-    //$scope.CambioTab = function(tab){
+    angular.element('select').select2();
 
     angular.element('ul.tabs li').click(function(){
+
         var tab_id = angular.element(this).find('a').data('tab');
 
         angular.element('ul.tabs li').removeClass('active');
@@ -33,16 +20,58 @@ app.controller('pedidoController', function($scope,$http){
         angular.element("#"+tab_id).toggleClass('active');
     });
 
-/*
-        alert('pedido guardado');
-        /!* PostResource.save({data:$scope.post},function(data){
-         console.log(data);
-         });*!/
-        $("#tab"+tab_id).addClass('current');
-
-    };
+   /* angular.element('#tab_pedido a').click(function (e) {
+        debugger;
+        e.preventDefault()
+        $(this).tab('show')
+    });
 */
 
+    $scope.GuardarEncabezadoPedido = function(e){
+        //$scope.prevent=function(){}
+
+        angular.element("#form_encabezado").submit(function(e){
+            e.preventDefault();
+        });
+
+        angular.element("#form_detalle").submit(function(e){
+            e.preventDefault();
+        });
+
+        angular.element("#form_balance").submit(function(e){
+            e.preventDefault();
+        });
+
+        alert('pedido guardado.');
+        /* PostResource.save({data:$scope.post},function(data){
+         console.log(data);
+         });*/
+
+        var tab_id = angular.element(this).find('a').data('tab');
+
+        angular.element('ul.tabs li').removeClass('active');
+        angular.element('.tab-pane').removeClass('active');
+
+        angular.element("ul.tabs").find("[data-tab='tab_2']").toggleClass('active');
+        angular.element("#tab_2").toggleClass('active');
+    };
+
+    $scope.CambiarTab = function(tab_actual,accion){
+        var tab_id =null;
+
+        if(tab_actual=='2' && accion=='atras')
+            tab_id='tab_1';
+        else if(tab_actual=='2' && accion=='siguiente')
+            tab_id='tab_3';
+        else if(tab_actual=='3' && accion=='atras')
+            tab_id='tab_2';
+
+        angular.element('ul.tabs li').removeClass('active');
+        angular.element('.tab-pane').removeClass('active');
+
+        angular.element("ul.tabs").find("[data-tab='"+tab_id+"']").toggleClass('active');
+        angular.element("#"+tab_id).toggleClass('active');
+    };
 
 
     $scope.list_tercero=[];

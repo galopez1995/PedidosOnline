@@ -1,9 +1,9 @@
 /**
  * Created by dev10 on 12/23/2015.
  */
-var app = angular.module('PedidosOnline',['ngResource','ngRoute']);
+var app_angular = angular.module('PedidosOnline',['ngResource','ngRoute']);
 
-app.config(['$routeProvider',//'$locationProvider',
+app_angular.config(['$routeProvider',//'$locationProvider',
     function($routeProvider) {
     //, $locationProvider) {
         $routeProvider
@@ -16,25 +16,34 @@ app.config(['$routeProvider',//'$locationProvider',
             templateUrl: function(urlattr){
                 if(urlattr.modulo=='pagina_Actual')
                     return '#'+ urlattr.url;
-
                 if(urlattr.modulo=='' || urlattr.url=='') {
                     urlattr.modulo = 'home';
                     urlattr.urlurl = 'home';
                 }
+                //angular.element('#titulo').html( urlattr.urlurl);
                 return 'view/'+ urlattr.modulo+'/' + urlattr.url + '.html';
             }
         })
         .otherwise("/");
-
         // use the HTML5 History API
         //$locationProvider.html5Mode(true);
     }
 ]);
 
 //CONTROLADOR DE GENERAL
-app.controller('appController', function($scope){
+app_angular.controller('appController', function($scope,$routeParams){
     //===== Sidebar Search (Demo Only) =====//
     angular.element(document).ready(function() {
+
+        /*$scope.modulo = $routeParams.modulo;
+        $scope.url = $routeParams.url;*/
+
+        try{angular.element('#titulo').html($routeParams.url);}
+        catch(excepcion){}
+
+        App.init(); // Init layout and core plugins
+        Plugins.init(); // Init all plugins
+        FormComponents.init(); // Init all form-specific plugins
 
         angular.element('select').select2();
 
@@ -140,7 +149,7 @@ app.controller('appController', function($scope){
 });
 
 //CONTROLADOR DE MENU
-app.controller('menuController', function($scope){
+app_angular.controller('menuController', function($scope){
     $scope.menuList = [
         {nombre_opcion:'Ventas',url:'#/', isSubmenu: true, icono:'icon-bar-chart',
             submenu: [{nombre_opcion: 'Pedidos', url:'#/ventas/pedidos_ingresados'}
@@ -153,7 +162,7 @@ app.controller('menuController', function($scope){
 });
 
 //CONTROLADOR DE PANTALLA DE CALENDARIO
-app.controller('calendarioController', function($scope){
+app_angular.controller('calendarioController', function($scope){
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();

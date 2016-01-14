@@ -2,7 +2,7 @@
  * Created by dev10 on 1/7/2016.
  */
 //interacion de jquery y angular practicoo en las directivas
-app.directive("autocomplete",function(){
+app_angular.directive("autocomplete",function(){
     function link(scope,element,attrs){
         angular.element(element).autocomplete({//auto complete del elento
             source: scope.$eval(attrs.autocomplete),//se le pasa el arreglo de atributos del elemnto
