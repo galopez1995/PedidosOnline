@@ -1,7 +1,7 @@
 /**
  * Created by dev10 on 12/23/2015.
  */
-var app_angular = angular.module('PedidosOnline',['ngResource','ngRoute']);
+var app_angular = angular.module('PedidosOnline',['angular-websql','ngResource','ngRoute']);
 
 app_angular.config(['$routeProvider',//'$locationProvider',
     function($routeProvider) {
@@ -31,7 +31,7 @@ app_angular.config(['$routeProvider',//'$locationProvider',
 ]);
 
 //CONTROLADOR DE GENERAL
-app_angular.controller('appController', function($scope,$routeParams){
+app_angular.controller('appController', function($scope,$routeParams,Factory){
     //===== Sidebar Search (Demo Only) =====//
     angular.element(document).ready(function() {
 
@@ -149,7 +149,7 @@ app_angular.controller('appController', function($scope,$routeParams){
 });
 
 //CONTROLADOR DE MENU
-app_angular.controller('menuController', function($scope){
+app_angular.controller('menuController', function($scope,Factory){
     $scope.menuList = [
         {nombre_opcion:'Ventas',url:'#/', isSubmenu: true, icono:'icon-bar-chart',
             submenu: [{nombre_opcion: 'Pedidos', url:'#/ventas/pedidos_ingresados'}
@@ -162,7 +162,7 @@ app_angular.controller('menuController', function($scope){
 });
 
 //CONTROLADOR DE PANTALLA DE CALENDARIO
-app_angular.controller('calendarioController', function($scope){
+app_angular.controller('calendarioController', function($scope,Factory){
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();

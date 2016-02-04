@@ -41,8 +41,27 @@
         <script type="text/javascript" src="libs/angular.min.js"></script>
         <script type="text/javascript" src="libs/angular-resource.min.js"></script>
         <script type="text/javascript" src="libs/angular-route.min.js"></script>
+        <script type="text/javascript" src="libs/angular-websql.min.js"></script>
+
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/directivas.js"></script>
+
+        <!-- Model JS -->
+        <script type="text/javascript" src="model/database.js"></script>
+        <script type="text/javascript" src="model/erp_entidades_master.js"></script>
+        <script type="text/javascript" src="model/erp_items.js"></script>
+        <script type="text/javascript" src="model/erp_items_precios.js"></script>
+        <script type="text/javascript" src="model/erp_terceros.js"></script>
+        <script type="text/javascript" src="model/l_log_eventos.js"></script>
+        <script type="text/javascript" src="model/m_empresas_config.js"></script>
+        <script type="text/javascript" src="model/s_opcionmenu.js"></script>
+        <script type="text/javascript" src="model/t_pedidos.js"></script>
+        <script type="text/javascript" src="model/t_pedidos_detalle.js"></script>
+
+        <!-- Controladores JS -->
+        <script type="text/javascript" src="controller/ventasController.js"></script>
+        <script type="text/javascript" src="controller/t_pedidosController.js"></script>
+        <script type="text/javascript" src="controller/t_pedidos_detalleController.js"></script>
 
 
         <script type="text/javascript" src="plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js"></script>
@@ -120,15 +139,6 @@
         <script type="text/javascript" src="assets/js/plugins.js"></script>
         <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
 
-<!--        <script>
-            $(document).ready(function(){
-                "use strict";
-
-                App.init(); // Init layout and core plugins
-                Plugins.init(); // Init all plugins
-                FormComponents.init(); // Init all form-specific plugins
-            });
-        </script>-->
         <style type="text/css">
             #cargando {
                 position: fixed;
@@ -220,7 +230,7 @@
             }
         </script>
     </head>
-    <body>
+    <body ng-cloak>
         <!-- Header -->
         <header class="header navbar navbar-fixed-top" role="banner">
             <!-- Top Navigation Bar -->
@@ -376,14 +386,11 @@
             <!-- /.Container -->
         </div>
 
-
         <!-- Demo JS -->
         <script type="text/javascript" src="assets/js/custom.js"></script>
         <script type="text/javascript" src="assets/js/demo/charts.js"></script>
         <!--<script type="text/javascript" src="assets/js/demo/charts/chart_filled_blue.js"></script>-->
         <!--<script type="text/javascript" src="assets/js/demo/charts/chart_simple.js"></script>-->
 
-        <!-- Controladores JS -->
-        <script type="text/javascript" src="controller/ventasController.js"></script>
     </body>
 </html>
