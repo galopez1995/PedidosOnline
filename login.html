@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="PedidosOnline">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -30,8 +30,15 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
 		<!--=== JavaScript ===-->
-
+		<!--=== PedidosOnline ===-->
 		<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
+
+		<script type="text/javascript" src="libs/angular.min.js"></script>
+		<script type="text/javascript" src="libs/angular-resource.min.js"></script>
+		<script type="text/javascript" src="libs/angular-route.min.js"></script>
+		<script type="text/javascript" src="libs/angular-websql.min.js"></script>
+
+		<script type="text/javascript" src="js/app.js"></script>
 
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
@@ -53,11 +60,11 @@
 		<!-- App -->
 		<script type="text/javascript" src="assets/js/login.js"></script>
 		<script>
-		$(document).ready(function(){
+	/*	$(document).ready(function(){
 			"use strict";
 
 			Login.init(); // Init login JavaScript
-		});
+		});*/
 		</script>
 	</head>
 
@@ -71,9 +78,9 @@
 
 		<!-- Login Box -->
 		<div class="box">
-			<div class="content">
+			<div class="content" ng-controller="loginController">
 				<!-- Login Formular -->
-				<form class="form-vertical login-form" action="index.html" method="post">
+				<form class="form-vertical login-form">
 					<!-- Title -->
 					<h3 class="form-title">Iniciar sesión en su cuenta</h3>
 
@@ -110,7 +117,7 @@
 					<!-- Form Actions -->
 					<div class="form-actions">
 						<!--<label class="checkbox pull-left"><input type="checkbox" class="uniform" name="remember"> Remember me</label>-->
-						<button type="submit" class="submit btn btn-primary pull-right">
+						<button type="submit" class="submit btn btn-primary pull-right" ng-click="Login()">
 							Ingresar <i class="icon-angle-right"></i>
 						</button>
 					</div>
