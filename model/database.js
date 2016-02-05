@@ -192,7 +192,7 @@ app_angular.service('Factory', function ($webSql) {
         },
         "id_estado": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "numpedido_erp": {
             "type": "varchar(50)",
@@ -216,7 +216,7 @@ app_angular.service('Factory', function ($webSql) {
         },
         "fechacreacion": {
             "type": "datetime",
-            "null": "NOT NULL",
+            "null": "NULL",
             "default": "CURRENT_TIMESTAMP" // default value
         },
         "usuariocreacion": {
@@ -290,79 +290,79 @@ app_angular.service('Factory', function ($webSql) {
         },
         "rowid_pedido": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "rowid_bodega": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "rowid_item": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "linea_descripcion": {
             "type": "varchar(255)",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "id_unidad": {
             "type": "varchar(10)",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "cantidad": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "factor": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "cantidad_base": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "precio_unitario": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "id_motivo": {
             "type": "varchar(10)",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "stock": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "valor_base": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "valor_impuesto": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "porcen_descuento": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "valor_porcen_descuento": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "valor_descuento": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "valor_total_linea": {
             "type": "float",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "fechacreacion": {
             "type": "datetime",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "usuariocreacion": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL",
         },
         "fechamod": {
             "type": "datetime",

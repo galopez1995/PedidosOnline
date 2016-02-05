@@ -19,6 +19,7 @@
 							<div class="col-md-12">
 								<form class="form-vertical row-border" id="form_encabezado" ng-submit="Add()">
 
+									<input type="hidden" name="rowid" id="rowid" ng-model="pedidos.rowid" value="1"/>
 									<input type="hidden" name="rowid_empresa" id="rowid_empresa" ng-model="pedidos.rowid_empresa" value="4"/>
 									<input type="hidden" name="id_cia" id="id_cia" ng-model="pedidos.id_cia" value="1"/>
 									<input type="hidden" name="rowid_bodega" id="rowid_bodega" ng-model="pedidos.rowid_bodega" value="1"/>
@@ -96,7 +97,7 @@
 						</div>
 						<div class="tab-pane" id="tab_2">
 							<div class="col-md-12">
-								<form class="form-vertical row-border" action="#" id="form_detalle" ng-submit="Add()>
+								<form class="form-vertical row-border" action="#" id="form_detalle">
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-12">
