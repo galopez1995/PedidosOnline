@@ -37,11 +37,11 @@ app_angular.config(['$routeProvider',//'$locationProvider',
 
 //CONTROLADOR DE GENERAL
 app_angular.controller('appController', function ($scope, $routeParams, Factory) {
-    if (window.localStorage.getItem("user") == null || window.localStorage.getItem("user")==undefined) {
+    /*if (window.localStorage.getItem("user") == null || window.localStorage.getItem("user")==undefined) {
         console.log($routeParams);
         //$scope.templateUrl = 'login.html';
-        $location.path("/login.html");
-    }
+        //$location.path("/login.html");
+    }*/
 
     if ($routeParams.url == undefined) {
         //===== Sidebar Search (Demo Only) =====//
