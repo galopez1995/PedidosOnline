@@ -20,36 +20,6 @@ app_angular.controller("pedidoController",['Metodos_t_pedidos','$scope','$locati
         angular.element("#" + tab_id).toggleClass('active');
     });
 
-    /*  $scope.GuardarEncabezadoPedido = function (e) {
-        //$scope.prevent=function(){}
-
-        angular.element("#form_encabezado").submit(function (e) {
-            e.preventDefault();
-        });
-
-        angular.element("#form_detalle").submit(function (e) {
-            e.preventDefault();
-        });
-
-        angular.element("#form_balance").submit(function (e) {
-            e.preventDefault();
-        });
-
-        alert('pedido guardado.');
-        /!* PostResource.save({data:$scope.post},function(data){
-         console.log(data);
-         });*!/
-
-        var tab_id = angular.element(this).find('a').data('tab');
-
-        angular.element('ul.tabs li').removeClass('active');
-        angular.element('.tab-pane').removeClass('active');
-
-        angular.element("ul.tabs").find("[data-tab='tab_2']").toggleClass('active');
-        angular.element("#tab_2").toggleClass('active');
-    };
-*/
-
     $scope.CambiarTab = function (tab_actual, accion) {
         var tab_id = null;
 
@@ -92,22 +62,7 @@ app_angular.controller("pedidoController",['Metodos_t_pedidos','$scope','$locati
 
     $scope.pedidos=[];
     $scope.Add=function(){
-
-        /*angular.element("#form_encabezado").submit(function (e) {
-            e.preventDefault();
-        });
-
-        angular.element("#form_detalle").submit(function (e) {
-            e.preventDefault();
-        });
-
-        angular.element("#form_balance").submit(function (e) {
-            e.preventDefault();
-        });*/
-
-        //alert('pedido guardado.');
-
         Pedido.insert($scope.pedidos);
-        //$location.path("/");
     };
+
 }]);

@@ -4,7 +4,6 @@ app_angular.service('Metodos_t_pedidos', ['Factory',function (Factory) {
  	Pedido = {};
     Pedido.insert = function(elem, callback) {
         db.insert('t_pedidos', elem, callback);
-        debugger;
     }
   	Pedido.selectAll = function(handler,callback){
     	db.selectAll('t_pedidos').then(function(results) {
@@ -26,6 +25,6 @@ app_angular.service('Metodos_t_pedidos', ['Factory',function (Factory) {
             db.update('t_pedidos', elem, callback);
         }
     }
-    debugger;
+
     return Pedido;
 }]);

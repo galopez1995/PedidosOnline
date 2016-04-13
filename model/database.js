@@ -2,7 +2,7 @@ app_angular = angular.module('PedidosOnline')
 
 app_angular.service('Factory', function ($webSql) {
 
-    db = $webSql.openDatabase('PedidosOnline', '1.0', 'Test DB', 200000);
+    db = $webSql.openDatabase(DATABASE, '1.0', 'Test DB', 200000);
 
     //db.dropTable('erp_items');
 
@@ -113,171 +113,179 @@ app_angular.service('Factory', function ($webSql) {
 
     db.createTable('t_pedidos', {
         "rowid": {
-            "type": "INTEGER",
+            "type": "varchar(50)",
             "null": "NOT NULL",
-            "primary": true,
-            "auto_increment": true
+            "primary": true//,
+            //"auto_increment": false
         },
         "rowid_empresa": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "id_cia": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "rowid_cliente_facturacion": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "rowid_cliente_despacho": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "rowid_lista_precios": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "rowid_bodega": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "fecha_pedido": {
-            "type": "datetime",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "fecha_entrega": {
-            "type": "datetime",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "fecha_solicitud": {
-            "type": "datetime",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "id_punto_envio": {
             "type": "varchar(10)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "observaciones": {
             "type": "varchar(500)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "observaciones2": {
             "type": "varchar(500)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "orden_compra": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "referencia": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "valor_base": {
-            "type": "float",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "valor_descuento": {
-            "type": "float",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "valor_impuesto": {
-            "type": "float",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "valor_total": {
-            "type": "float",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "id_estado": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "numpedido_erp": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "numfactura_erp": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "estado_erp": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "valor_facturado": {
-            "type": "float",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "id_cond_especial": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "fechacreacion": {
-            "type": "datetime",
-            "null": "NULL",
-            "default": "CURRENT_TIMESTAMP" // default value
+            "type": "varchar(50)",
+            "null": "NULL"
+            //  "default": "CURRENT_TIMESTAMP" // default value
         },
         "usuariocreacion": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "fechamod": {
-            "type": "datetime",
+            "type": "varchar(50)",
             "null": " NULL",
         },
         "usuariomod": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "tipo_doc": {
             "type": "varchar(10)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "id_vendedor": {
             "type": "varchar(25)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "id_cond_pago": {
             "type": "varchar(10)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "numremision_erp": {
             "type": "varchar(25)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "id_co": {
             "type": "varchar(10)",
-            "null": " NULL",
+            "null": " NULL"
         },
         "transporte_conductor_cc": {
             "type": "varchar(25)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "transporte_conductor_nombre": {
             "type": "varchar(25)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "transporte_placa": {
-            "type": "datetime",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "fecha_anulacion": {
-            "type": "datetime",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "usuario_anulacion": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "id_nota": {
-            "type": "INTEGER",
-            "null": "NULL",
+            "type": "varchar(50)",
+            "null": "NULL"
         },
         "criterio_clasificacion": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
+        },
+        "ind_estado_erp": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "modulo_creacion": {
+            "type": "varchar(50)",
+            "null": "NULL"
         }
     })
 
@@ -290,111 +298,131 @@ app_angular.service('Factory', function ($webSql) {
         },
         "rowid_pedido": {
             "type": "INTEGER",
-            "null": "NULL",
+            "null": "NULL"
         },
         "rowid_bodega": {
             "type": "INTEGER",
-            "null": "NULL",
+            "null": "NULL"
         },
         "rowid_item": {
             "type": "INTEGER",
-            "null": "NULL",
+            "null": "NULL"
         },
         "linea_descripcion": {
             "type": "varchar(255)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "id_unidad": {
             "type": "varchar(10)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "cantidad": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "factor": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "cantidad_base": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "precio_unitario": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "id_motivo": {
             "type": "varchar(10)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "stock": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "valor_base": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "valor_impuesto": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "porcen_descuento": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "valor_porcen_descuento": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "valor_descuento": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "valor_total_linea": {
             "type": "float",
-            "null": "NULL",
+            "null": "NULL"
         },
         "fechacreacion": {
             "type": "datetime",
-            "null": "NULL",
+            "null": "NULL"
         },
         "usuariocreacion": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "fechamod": {
             "type": "datetime",
-            "null": " NULL",
+            "null": " NULL"
         },
         "usuariomod": {
             "type": "varchar(50)",
-            "null": " NULL",
+            "null": " NULL"
         },
         "rowid_item_ext": {
             "type": "INTEGER",
-            "null": "NULL",
+            "null": "NULL"
         },
         "item_ext1": {
             "type": "varchar(50)",
-            "null": " NULL",
+            "null": " NULL"
         },
         "item_ext2": {
             "type": "varchar(50)",
-            "null": " NULL",
+            "null": " NULL"
         },
         "num_lote": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
         },
         "fecha_anulacion": {
             "type": "datetime",
-            "null": "NULL",
+            "null": "NULL"
         },
         "usuario_anulacion": {
             "type": "varchar(50)",
-            "null": "NULL",
+            "null": "NULL"
+        },
+        "flete": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "porcen_descuento2": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "valor_porcen_descuento2": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "porcen_descuento3": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "valor_porcen_descuento3": {
+            "type": "varchar(50)",
+            "null": "NULL"
         }
     })
 
@@ -402,76 +430,96 @@ app_angular.service('Factory', function ($webSql) {
         "rowid": {
             "type": "INTEGER",
             "null": "NOT NULL",
-            "primary": true,
-            "auto_increment": true
+            "primary": true//,
+            //"auto_increment": true
         },
         "rowid_empresa": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "id_cia": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "rowid_interno": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "identificacion": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "tipo_identificacion": {
             "type": "varchar(10)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "razonsocial": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "nombre_comercial": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "codigo_erp": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "ind_activo": {
             "type": "varchar(10)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "es_vendedor": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "es_cliente": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "es_proveedor": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "fechacreacion": {
             "type": "datetime",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "usuariocreacion": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "fechamod": {
             "type": "datetime",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "usuariomod": {
             "type": "varchar(50)",
-            "null": "NOT NULL",
+            "null": "NULL"
         },
         "id_impuesto": {
             "type": "INTEGER",
-            "null": "NOT NULL",
+            "null": "NULL"
+        },
+        "es_accionista": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "industria": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "tipo_industria": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "clasificacion": {
+            "type": "varchar(50)",
+            "null": "NULL"
+        },
+        "descripcion": {
+            "type": "varchar(50)",
+            "null": "NULL"
         }
     })
 

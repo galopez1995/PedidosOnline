@@ -39,6 +39,8 @@
         <!--=== PedidosOnline ===-->
         <script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
 
+        <script type="text/javascript" src="js/constantes.js"></script>
+
         <script type="text/javascript" src="libs/angular.min.js"></script>
         <script type="text/javascript" src="libs/angular-resource.min.js"></script>
         <script type="text/javascript" src="libs/angular-route.min.js"></script>
@@ -46,6 +48,7 @@
 
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/directivas.js"></script>
+
 
         <!-- Model JS -->
         <script type="text/javascript" src="model/database.js"></script>
@@ -60,6 +63,8 @@
         <script type="text/javascript" src="model/t_pedidos_detalle.js"></script>
 
         <!-- Controladores JS -->
+        <script type="text/javascript" src="controller/erp_tercerosController.js"></script>
+
         <script type="text/javascript" src="controller/ventasController.js"></script>
         <script type="text/javascript" src="controller/t_pedidosController.js"></script>
         <script type="text/javascript" src="controller/t_pedidos_detalleController.js"></script>
@@ -144,7 +149,7 @@
         <script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
 
         <style type="text/css">
-            #cargando {
+            #DivLoadingPage {
                 position: fixed;
                 left: 0px;
                 top: 0px;
@@ -172,7 +177,7 @@
         <script>
 
             $(window).load(function () {
-                $("#cargando").fadeOut("slow");
+                $("#DivLoadingPage").fadeOut("slow");
             });
 
             // Muestra Modal Procesando

@@ -33,10 +33,12 @@
 		<!--=== PedidosOnline ===-->
 		<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
 
-		<script type="text/javascript" src="libs/angular.min.js"></script>
-		<script type="text/javascript" src="libs/angular-resource.min.js"></script>
-		<script type="text/javascript" src="libs/angular-route.min.js"></script>
-		<script type="text/javascript" src="libs/angular-websql.min.js"></script>
+        <script type="text/javascript" src="js/constantes.js"></script>
+
+        <script type="text/javascript" src="libs/angular.min.js"></script>
+        <script type="text/javascript" src="libs/angular-resource.min.js"></script>
+        <script type="text/javascript" src="libs/angular-route.min.js"></script>
+        <script type="text/javascript" src="libs/angular-websql.min.js"></script>
 
 		<script type="text/javascript" src="js/app.js"></script>
 
@@ -57,18 +59,146 @@
 		<!-- Slim Progress Bars -->
 		<script type="text/javascript" src="plugins/nprogress/nprogress.js"></script>
 
+        <!-- Noty -->
+        <script type="text/javascript" src="plugins/noty/jquery.noty.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/top.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/topCenter.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/topLeft.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/topRight.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/inline.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/centerRight.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/centerLeft.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/center.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottomRight.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottomLeft.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottomCenter.js"></script>
+        <script type="text/javascript" src="plugins/noty/layouts/bottom.js"></script>
+        <script type="text/javascript" src="plugins/noty/themes/default.js"></script>
+
 		<!-- App -->
 		<script type="text/javascript" src="assets/js/login.js"></script>
-		<script>
-	/*	$(document).ready(function(){
-			"use strict";
 
-			Login.init(); // Init login JavaScript
-		});*/
-		</script>
+
+        <style type="text/css">
+            #DivLoadingPage {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url('assets/img/loading.gif') 50% 50% no-repeat rgb(0, 0, 0);
+                opacity: 0.5;
+            }
+
+            /*label.error {
+                border: 0px solid red;
+                color: red;
+            }
+
+            input:required:valid {
+                border: 1px solid green;
+            }*/
+
+            .ui-autocomplete-loading {
+                background: url('assets/img/auto_loader.gif') no-repeat right center;
+            }
+        </style>
+
+        <script>
+
+            $(window).load(function () {
+                $("#DivLoadingPage").fadeOut("slow");
+            });
+
+            // Muestra Modal Procesando
+            function ProcesadoShow() {
+                $("#ModalProcessing").modal()                       // initialized with defaults
+                $("#ModalProcessing").modal({backdrop: 'static', keyboard: false})   // initialized with no keyboard
+                $("#ModalProcessing").modal('show')
+            }
+
+            // Oculta Modal de procesando
+            function ProcesadoHiden() {
+                $("#ModalProcessing").modal('hide');
+            }
+
+            // Genera Los Mensajes de Alertas
+            function Mensajes(text, type, layot) {
+                if (layot == '' || layot == null)
+                    layot = 'bottomRight';
+
+                var self = $(this);
+                noty({
+                    text: text,
+                    type: type,
+                    theme: 'defaultTheme',
+                    layout: layot,
+                    timeout: 10000,
+                    modal: self.data('modal')
+                });
+
+                return false;
+            }
+
+            function Sincronizar(){
+
+                localStorage.clear();
+
+                for(var i=0; i < STEP_SINCRONIZACION.length; i++)
+                {
+                    $.ajax({
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: 'get',
+                        url: 'http://demos.pedidosonline.co/Mobile/Instalacion?step=2&username=' + $("#username").val() + '&codigo_empresa=' + $("#codigo_empresa").val() + '&entidad=' + STEP_SINCRONIZACION[i],
+                        crossDomain: true,
+                        async: false,
+                        success: function (data) {
+
+                            localStorage.removeItem(STEP_SINCRONIZACION[i].toString());
+                            localStorage.setItem(STEP_SINCRONIZACION[i].toString(),  JSON.stringify(data));
+
+                        },
+                        error: function (request) {
+                            debugger;
+                            alert(request.responseJSON);
+                        }
+                    });
+                }
+            }
+
+            function Login(){
+
+                $("#form_login").submit(function(e){
+                    e.preventDefault();
+                });
+
+                ProcesadoShow();
+
+                $.ajax({
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: 'get',
+                    url: 'http://demos.pedidosonline.co/Mobile/Login?username='+$("#username").val()+'&codigo_empresa='+$("#codigo_empresa").val()+'&pass='+$("#password").val(),
+                    crossDomain : true,
+                    //async: false,
+                    success: function (data) {
+                        Sincronizar();
+                        //ProcesadoHiden();
+                        Mensajes('Bienvenido','success','');
+                        location.href=location.origin+'/PedidosOnline/';
+                    },
+                    error: function (request) {
+                        ProcesadoHiden();
+                        alert(request.responseJSON);
+                    }
+                });
+            }
+        </script>
 	</head>
 
-	<body class="login">
+	<body class="login" ng-cloak>
 		<!-- Logo -->
 		<div class="logo">
 			<img src="assets/img/logo.png" alt="logo" />
@@ -78,9 +208,9 @@
 
 		<!-- Login Box -->
 		<div class="box">
-			<div class="content" ng-controller="loginController">
+			<div class="content"> <!--ng-controller="loginController"-->
 				<!-- Login Formular -->
-				<form class="form-vertical login-form">
+				<form class="form-vertical login-form" id="form_login">
 					<!-- Title -->
 					<h3 class="form-title">Iniciar sesión en su cuenta</h3>
 
@@ -95,21 +225,21 @@
 						<!--<label for="username">Username:</label>-->
 						<div class="input-icon">
 							<i class="icon-user"></i>
-							<input type="text" name="username" class="form-control" placeholder="Nombre usuario" autofocus="autofocus" data-rule-required="true" data-msg-required="Por favor, ingrese su nombre de usuario." />
+							<input type="text" id="username" name="username" class="form-control" placeholder="Nombre usuario" autofocus="autofocus" data-rule-required="true" data-msg-required="Por favor, ingrese su nombre de usuario." />
 						</div>
 					</div>
 					<div class="form-group">
 						<!--<label for="username">Username:</label>-->
 						<div class="input-icon">
 							<i class="icon-user"></i>
-							<input type="text" name="codigo_empresa" class="form-control" placeholder="Codigo empresa" data-rule-required="true" data-msg-required="Por favor, ingrese el codigo de la empresa." />
+							<input type="text" id="codigo_empresa" name="codigo_empresa" class="form-control" placeholder="Codigo empresa" data-rule-required="true" data-msg-required="Por favor, ingrese el codigo de la empresa." />
 						</div>
 					</div>
 					<div class="form-group">
 						<!--<label for="password">Password:</label>-->
 						<div class="input-icon">
 							<i class="icon-lock"></i>
-							<input type="password" name="password" class="form-control" placeholder="Password" data-rule-required="true" data-msg-required="Por favor, ingrese su password." />
+							<input type="password" id="password" name="password" class="form-control" placeholder="Password" data-rule-required="true" data-msg-required="Por favor, ingrese su password." />
 						</div>
 					</div>
 					<!-- /Input Fields -->
@@ -117,9 +247,9 @@
 					<!-- Form Actions -->
 					<div class="form-actions">
 						<!--<label class="checkbox pull-left"><input type="checkbox" class="uniform" name="remember"> Remember me</label>-->
-						<button type="submit" class="submit btn btn-primary pull-right" ng-click="Login()">
+						<a href="javascript:Login()" class="btn btn-primary pull-right">
 							Ingresar <i class="icon-angle-right"></i>
-						</button>
+						</a>
 					</div>
 				</form>
 				<!-- /Login Formular -->
@@ -162,5 +292,12 @@
 			<!-- /Forgot Password Form -->
 		</div>
 		<!-- /Login Box -->
+
+        <div id="DivLoadingPage"></div>
+        <div class="modal fade" data-backdrop="static" data-keyboard="false" id="ModalProcessing"
+             style="overflow:hidden; text-align:center;">
+            <img src="assets/img/loading.gif" alt="Loading"
+                 style="display: block;margin-left: auto; margin-right: auto; margin-top: 250px;">
+        </div>
 	</body>
 </html>

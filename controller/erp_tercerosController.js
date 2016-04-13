@@ -1,6 +1,6 @@
 var app_angular= angular.module('PedidosOnline');
 
-app_angular.controller("MainController_erp_terceros",['Metodos_erp_terceros','$scope',function (Metodos_erp_terceros,$scope) {
+app_angular.controller("TercerosController",['Metodos_erp_terceros','$scope',function (Metodos_erp_terceros,$scope) {
 	// body...
 	$scope.terceros = [];
     Terceros.selectAll(function(elem) {$scope.terceros.push(elem)});

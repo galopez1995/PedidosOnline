@@ -36,7 +36,7 @@ app_angular.config(['$routeProvider',//'$locationProvider',
 ]);
 
 //CONTROLADOR DE GENERAL
-app_angular.controller('appController', function ($scope, $routeParams, Factory) {
+app_angular.controller('appController',['Metodos_erp_terceros','Metodos_t_pedidos','Metodos_t_pedidos_detalle','$scope','$location','$http', '$routeParams', 'Factory' ,function (Metodos_erp_terceros,Metodos_t_pedidos,Metodos_t_pedidos_detalle, $scope, $location, $http, $routeParams, Factory) {
     /*if (window.localStorage.getItem("user") == null || window.localStorage.getItem("user")==undefined) {
         console.log($routeParams);
         //$scope.templateUrl = 'login.html';
@@ -126,7 +126,28 @@ app_angular.controller('appController', function ($scope, $routeParams, Factory)
         $scope.templateUrl = 'view/' + $routeParams.modulo + '/' + $routeParams.url + '.html';
     }
 
-});
+
+    for(var i=0; i < STEP_SINCRONIZACION.length; i++)
+    {
+        DATOS_ENTIDADES_SINCRONIZACION[i]=localStorage.getItem(STEP_SINCRONIZACION[i].toString());
+        DATOS_ENTIDADES_SINCRONIZACION[i] = JSON.parse(DATOS_ENTIDADES_SINCRONIZACION[i]);
+
+        for(var j=0; j < DATOS_ENTIDADES_SINCRONIZACION[i].length; j++) {
+
+            if (STEP_SINCRONIZACION[i] == ENTIDAD_PEDIDOS) {
+                Pedido.insert(DATOS_ENTIDADES_SINCRONIZACION[i][j]);
+            }
+            else if (STEP_SINCRONIZACION[i] == ENTIDAD_PEDIDOS_DETALLE) {
+                Pedido_Detalle.insert(DATOS_ENTIDADES_SINCRONIZACION[i][j]);
+            }
+            else if (STEP_SINCRONIZACION[i] == ENTIDAD_TERCEROS) {
+                Terceros.insert(DATOS_ENTIDADES_SINCRONIZACION[i][j]);
+            }
+        }
+    }
+
+}]);
+
 
 //CONTROLADOR DE MENU
 app_angular.controller('menuController', function ($scope, Factory) {
@@ -134,6 +155,11 @@ app_angular.controller('menuController', function ($scope, Factory) {
         {
             nombre_opcion: 'Ventas', url: '#/', isSubmenu: true, icono: 'icon-bar-chart',
             submenu: [{nombre_opcion: 'Pedidos', url: '#/ventas/pedidos_ingresados'}
+            ]
+        },
+        {
+            nombre_opcion: 'Crm', url: '#/', isSubmenu: true, icono: 'icon-user',
+            submenu: [{nombre_opcion: 'Clientes', url: '#/crm/terceros'}
             ]
         },
         {
@@ -147,17 +173,29 @@ app_angular.controller('menuController', function ($scope, Factory) {
 });
 
 //CONTROLADOR DEL LOGIN
-app_angular.controller('loginController', function ($scope, Factory) {
+app_angular.controller('loginController', function ($scope, Factory, $location, $http) {
+
     angular.element(document).ready(function () {
         "use strict";
         Login.init(); // Init login JavaScript
     });
 
     $scope.Login=function(){
-        window.localStorage.setItem("user", "user:xxx;pass:xxxxxx;");
+
         debugger;
+        $http.get("https://api.github.com/users/codigofacilito/repos")
+            .success(function (data) {
+                debugger;
+            })
+            .error(function (err) {
+                console.log("Error" + err);
+            });
+
+        //window.localStorage.setItem("user", "user:xxx;pass:xxxxxx;");
+
     }
 });
+
 
 //CONTROLADOR DE PANTALLA DE CALENDARIO
 app_angular.controller('calendarioController', function ($scope, Factory) {
