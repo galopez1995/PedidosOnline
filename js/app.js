@@ -37,11 +37,11 @@ app_angular.config(['$routeProvider',//'$locationProvider',
 
 //CONTROLADOR DE GENERAL
 app_angular.controller('appController',['Metodos_erp_terceros','Metodos_t_pedidos','Metodos_t_pedidos_detalle','$scope','$location','$http', '$routeParams', 'Factory' ,function (Metodos_erp_terceros,Metodos_t_pedidos,Metodos_t_pedidos_detalle, $scope, $location, $http, $routeParams, Factory) {
-    /*if (window.localStorage.getItem("user") == null || window.localStorage.getItem("user")==undefined) {
-        console.log($routeParams);
-        //$scope.templateUrl = 'login.html';
-        //$location.path("/login.html");
-    }*/
+
+
+    if (window.localStorage.getItem("CUR_USER") == null || window.localStorage.getItem("CUR_USER")==undefined) {
+        location.href=location.origin+'/PedidosOnline/login.html';
+    }
 
     if ($routeParams.url == undefined) {
         //===== Sidebar Search (Demo Only) =====//

@@ -143,7 +143,7 @@
 
             function Sincronizar(){
 
-                localStorage.clear();
+                //localStorage.clear();
 
                 for(var i=0; i < STEP_SINCRONIZACION.length; i++)
                 {
@@ -184,7 +184,12 @@
                     crossDomain : true,
                     //async: false,
                     success: function (data) {
+
+                        localStorage.removeItem('CUR_USER');
+                        localStorage.setItem('CUR_USER', JSON.stringify(data));
+
                         Sincronizar();
+
                         //ProcesadoHiden();
                         Mensajes('Bienvenido','success','');
                         location.href=location.origin+'/PedidosOnline/';
