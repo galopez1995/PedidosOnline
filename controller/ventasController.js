@@ -7,6 +7,8 @@ var app_angular = angular.module('PedidosOnline');
 //CONTROLADOR DEL MOULO DE VENTAS
 app_angular.controller("pedidoController",['Metodos_t_pedidos','Metodos_erp_terceros','$scope','$location','$http',function (Metodos_t_pedidos,Metodos_erp_terceros,$scope,$location,$http) {
 
+    $scope.modulo=MODULO_PEDIDO_NUEVO;
+
     angular.element('select').select2();
 
     angular.element('ul.tabs li').click(function () {

@@ -11,19 +11,19 @@ app_angular.directive("autocomplete",function(){
                 if(ui.item){
                     scope.optionSelect(ui.item.value);//se pasa el valor de la seleccion
                 }
+                //scope.$apply;
             },
             focus: function(ev,ui){
                 ev.preventDefault();
                 $(this).val(ui.item.label);//le pasa el texto cuando se seleccione
-            }
-          /*  select:function (event, ui) {
-                scope.myModelId.selected = ui.item.value;
-                scope.$apply;
-                return false;
-            },
-            change:function (event, ui) {
+            }/*,
+            change:function (ev, ui){
+                debugger;
+
+                ev.preventDefault();
                 if (ui.item === null) {
-                    scope.myModelId.selected = null;
+                    if(scope.modulo==MODULO_PEDIDO_NUEVO)
+                        scope.pedidos.rowid_tercero = null;
                 }
             }*/
         })

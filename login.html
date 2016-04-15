@@ -34,7 +34,7 @@
 		<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
 
         <script type="text/javascript" src="js/constantes.js"></script>
-        
+
 
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
@@ -101,9 +101,9 @@
 
         <script>
 
-         /*   $(document).ready(function () {
+            $(document).ready(function () {
                 localStorage.removeItem('CUR_USER');
-            });*/
+            });
 
 
             $(window).load(function () {
@@ -142,7 +142,7 @@
 
             function Sincronizar(){
 
-                alert('Sincronizar');
+               // alert('Sincronizar');
 
                 //localStorage.clear();
 
@@ -159,7 +159,7 @@
 
 //                            if(data.message=='OK') {
 
-                                alert('Sincronizar '+STEP_SINCRONIZACION[i].toString());
+                                //alert('Sincronizar '+STEP_SINCRONIZACION[i].toString());
 
                                 localStorage.removeItem(STEP_SINCRONIZACION[i].toString());
                                 localStorage.setItem(STEP_SINCRONIZACION[i].toString(), JSON.stringify(data));
@@ -170,12 +170,12 @@
                                 //Mensajes(data.message,'error','');
                             }*/
 
-                        },
+                        }/*,
                         error: function (request,a,b) {
                             alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString()+' '+request+' | '+ a+ ' | '+b);
                             //debugger;
                             //alert(request.responseJSON);
-                        }
+                        }*/
                     });
                 }
             }
@@ -186,9 +186,25 @@
                     e.preventDefault();
                 });
 
+
+                if($("#username").val()=='') {
+                    Mensajes('Ingresar nombre de usuario.', 'error', '');
+                    return;
+                }
+
+                if($("#codigo_empresa").val()=='') {
+                    Mensajes('Ingresar codigo de la empresa.', 'error', '');
+                    return;
+                }
+
+                if($("#password").val()=='') {
+                    Mensajes('Ingresar clave.', 'error', '');
+                    return;
+                }
+
                 ProcesadoShow();
 
-                alert('Login 1');
+                //alert('Login 1');
 
                 $.ajax({
                     dataType: "json",
@@ -199,11 +215,11 @@
                     //async: false,
                     success: function (data) {
 
-                        alert('Login success');
+                        //alert('Login success');
 
                         if(data.message=='OK') {
 
-                            alert('Login OK');
+                            //alert('Login OK');
 
                             localStorage.removeItem('CUR_USER');
                             localStorage.setItem('CUR_USER', JSON.stringify(data.data));
@@ -215,15 +231,15 @@
                             location.href = 'index.html';
                         }
                         else{
-                            alert('Login <> OK');
+                            //alert('Login <> OK');
                             ProcesadoHiden();
                             Mensajes(data.message,'error','');
                         }
-                    },
+                    }/*,
                     error: function (request,a,b) {
                         ProcesadoHiden();
                         alert('Error Login  '+JSON.stringify(request)+' | '+ a+ ' | '+b);
-                    }
+                    }*/
                 });
             }
         </script>
