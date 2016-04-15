@@ -107,7 +107,10 @@
 
         <script>
 
-            localStorage.removeItem('CUR_USER');
+            $(document).ready(function () {
+                localStorage.removeItem('CUR_USER');
+            });
+
 
             $(window).load(function () {
                 $("#DivLoadingPage").fadeOut("slow");
@@ -169,14 +172,13 @@
                             }
                             else{
 
-                               // alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString());
+                                alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString());
                                 //Mensajes(data.message,'error','');
                             }
 
                         },
                         error: function (request,a,b) {
                             alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString()+' '+request+' | '+ a+ ' | '+b);
-                            continue;
                             //debugger;
                             //alert(request.responseJSON);
                         }
