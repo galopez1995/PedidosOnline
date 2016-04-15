@@ -143,6 +143,8 @@
 
             function Sincronizar(){
 
+                alert('Sincronizar');
+
                 //localStorage.clear();
 
                 for(var i=0; i < STEP_SINCRONIZACION.length; i++)
@@ -155,19 +157,26 @@
                         crossDomain: true,
                         async: false,
                         success: function (data) {
+
                             if(data.message=='OK') {
+
+                                alert('Sincronizar '+STEP_SINCRONIZACION[i].toString());
+
                                 localStorage.removeItem(STEP_SINCRONIZACION[i].toString());
                                 localStorage.setItem(STEP_SINCRONIZACION[i].toString(), JSON.stringify(data));
                             }
                             else{
+
+                                alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString());
                                 //Mensajes(data.message,'error','');
                             }
 
-                        }/*,
-                        error: function (request) {
+                        },
+                        error: function (request,a,b) {
+                            alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString()+' '+request+' | '+ a+ ' | '+b);
                             //debugger;
                             //alert(request.responseJSON);
-                        }*/
+                        }
                     });
                 }
             }
@@ -189,7 +198,11 @@
                     async: false,
                     success: function (data) {
 
+                        alert('Login');
+
                         if(data.message=='OK') {
+
+                            alert('Login OK');
 
                             localStorage.removeItem('CUR_USER');
                             localStorage.setItem('CUR_USER', JSON.stringify(data.data));
@@ -205,11 +218,12 @@
                             Mensajes(data.message,'error','');
                         }
 
-                    }/*,
+                    } ,
                     error: function (request,a,b) {
-                        ProcesadoHiden();
-                        Mensajes('Error al iniciar session.','error','');
-                    }*/
+                        alert('Error Login  '+request+' | '+ a+ ' | '+b);
+                        //debugger;
+                        //alert(request.responseJSON);
+                    }
                 });
             }
         </script>
