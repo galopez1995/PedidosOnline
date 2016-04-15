@@ -41,6 +41,7 @@ app_angular.controller('appController',['Metodos_erp_terceros','Metodos_t_pedido
 
     if (window.localStorage.getItem("CUR_USER") == null || window.localStorage.getItem("CUR_USER")==undefined) {
         location.href='login.html';
+        return;
     }
 
     if ($routeParams.url == undefined) {
