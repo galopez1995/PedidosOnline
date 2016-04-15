@@ -19,6 +19,13 @@ app_angular.service('Metodos_erp_terceros', ['Factory',function (Factory) {
 			}
 	    })
     }
+    Terceros.selectRazonSocial = function(razonsocial,handler,callback){
+        db.select('erp_terceros',{'razonsocial':razonsocial}).then(function(results) {
+            for(var i=0; i < results.rows.length; i++){
+                handler(results.rows.item(i));
+            }
+        })
+    }
     Terceros.Delete = function(id,callback){
         db.del('erp_terceros',{'rowid':id});
     } 

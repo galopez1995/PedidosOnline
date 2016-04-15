@@ -155,15 +155,19 @@
                         crossDomain: true,
                         async: false,
                         success: function (data) {
+                            if(data.message=='OK') {
+                                localStorage.removeItem(STEP_SINCRONIZACION[i].toString());
+                                localStorage.setItem(STEP_SINCRONIZACION[i].toString(), JSON.stringify(data));
+                            }
+                            else{
+                                //Mensajes(data.message,'error','');
+                            }
 
-                            localStorage.removeItem(STEP_SINCRONIZACION[i].toString());
-                            localStorage.setItem(STEP_SINCRONIZACION[i].toString(),  JSON.stringify(data));
-
-                        },
+                        }/*,
                         error: function (request) {
                             //debugger;
                             //alert(request.responseJSON);
-                        }
+                        }*/
                     });
                 }
             }
@@ -185,19 +189,27 @@
                     async: false,
                     success: function (data) {
 
-                        localStorage.removeItem('CUR_USER');
-                        localStorage.setItem('CUR_USER', JSON.stringify(data));
+                        if(data.message=='OK') {
 
-                        Sincronizar();
+                            localStorage.removeItem('CUR_USER');
+                            localStorage.setItem('CUR_USER', JSON.stringify(data.data));
 
-                        //ProcesadoHiden();
-                        Mensajes('Bienvenido','success','');
-                        location.href=location.origin+'/PedidosOnline/';
-                    },
-                    error: function (request) {
+                            Sincronizar();
+
+                            ProcesadoHiden();
+                            Mensajes('Bienvenido', 'success', '');
+                            location.href = location.origin + '/PedidosOnline/';
+                        }
+                        else{
+                            ProcesadoHiden();
+                            Mensajes(data.message,'error','');
+                        }
+
+                    }/*,
+                    error: function (request,a,b) {
                         ProcesadoHiden();
                         Mensajes('Error al iniciar session.','error','');
-                    }
+                    }*/
                 });
             }
         </script>

@@ -5,7 +5,7 @@ var app_angular = angular.module('PedidosOnline');
 
 
 //CONTROLADOR DEL MOULO DE VENTAS
-app_angular.controller("pedidoController",['Metodos_t_pedidos','$scope','$location','$http',function (Metodos_t_pedidos,$scope,$location,$http) {
+app_angular.controller("pedidoController",['Metodos_t_pedidos','Metodos_erp_terceros','$scope','$location','$http',function (Metodos_t_pedidos,Metodos_erp_terceros,$scope,$location,$http) {
 
     angular.element('select').select2();
 
@@ -38,21 +38,27 @@ app_angular.controller("pedidoController",['Metodos_t_pedidos','$scope','$locati
     };
 
     $scope.list_tercero = [];
+
+    Terceros.selectAll(
+        function(elem){
+            $scope.list_tercero.push(elem.razonsocial)
+        }
+    );
+
+    /*
     $http.get("https://api.github.com/users/codigofacilito/repos")
-        /*$http.get("http://edex.pedidosonline.co/SVC/ObtenerDatos?entidad=TERCEROS")*/
         .success(function (data) {
             for (var i = data.length - 1; i >= 0; i--) {
                 var repo = data[i];
                 //crea un arreglo unidimensional de los nombres, para poder ser manejado por el autocomplete
-                /*$scope.list_tercero.push(repo.razonsocial);*/
                 $scope.list_tercero.push(repo.name);
             };
-
             console.log(data);
         })
         .error(function (err) {
             console.log("Error" + err);
         });
+    */
 
     $scope.optionSelect = function (data) {//se encarga de manejar la seleccion del autocomplete
         $scope.$apply(function () {
@@ -64,5 +70,9 @@ app_angular.controller("pedidoController",['Metodos_t_pedidos','$scope','$locati
     $scope.Add=function(){
         Pedido.insert($scope.pedidos);
     };
+
+    angular.element('#ui-id-1').mouseover(function (){
+        angular.element('#ui-id-1').show();
+    });
 
 }]);

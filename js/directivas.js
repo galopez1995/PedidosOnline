@@ -16,7 +16,17 @@ app_angular.directive("autocomplete",function(){
                 ev.preventDefault();
                 $(this).val(ui.item.label);//le pasa el texto cuando se seleccione
             }
-        });
+          /*  select:function (event, ui) {
+                scope.myModelId.selected = ui.item.value;
+                scope.$apply;
+                return false;
+            },
+            change:function (event, ui) {
+                if (ui.item === null) {
+                    scope.myModelId.selected = null;
+                }
+            }*/
+        })
     };
     return {
         link: link
