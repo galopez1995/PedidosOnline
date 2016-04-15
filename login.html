@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="PedidosOnline">
+<html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -34,13 +34,7 @@
 		<script type="text/javascript" src="assets/js/libs/jquery-1.10.2.min.js"></script>
 
         <script type="text/javascript" src="js/constantes.js"></script>
-
-       <!-- <script type="text/javascript" src="libs/angular.min.js"></script>
-        <script type="text/javascript" src="libs/angular-resource.min.js"></script>
-        <script type="text/javascript" src="libs/angular-route.min.js"></script>
-        <script type="text/javascript" src="libs/angular-websql.min.js"></script>-->
-
-<!--		<script type="text/javascript" src="js/app.js"></script>-->
+        
 
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/libs/lodash.compat.min.js"></script>
@@ -202,7 +196,7 @@
                     type: 'get',
                     url: 'http://demos.pedidosonline.co/Mobile/Login?username='+$("#username").val()+'&codigo_empresa='+$("#codigo_empresa").val()+'&pass='+$("#password").val(),
                     crossDomain: true,
-                    async: false,
+                    //async: false,
                     success: function (data) {
 
                         alert('Login success');
@@ -235,7 +229,7 @@
         </script>
 	</head>
 
-	<body class="login" ng-cloak>
+	<body class="login">
 		<!-- Logo -->
 		<div class="logo">
 			<img src="assets/img/logo.png" alt="logo" />
