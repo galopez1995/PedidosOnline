@@ -182,7 +182,7 @@
                     type: 'get',
                     url: 'http://demos.pedidosonline.co/Mobile/Login?username='+$("#username").val()+'&codigo_empresa='+$("#codigo_empresa").val()+'&pass='+$("#password").val(),
                     crossDomain: true,
-                    //async: false,
+                    async: false,
                     success: function (data) {
 
                         localStorage.removeItem('CUR_USER');
