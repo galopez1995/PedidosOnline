@@ -163,18 +163,18 @@
                         async: false,
                         success: function (data) {
 
-                            if(data.message=='OK') {
+//                            if(data.message=='OK') {
 
                                // alert('Sincronizar '+STEP_SINCRONIZACION[i].toString());
 
                                 localStorage.removeItem(STEP_SINCRONIZACION[i].toString());
                                 localStorage.setItem(STEP_SINCRONIZACION[i].toString(), JSON.stringify(data));
-                            }
+                     /*       }
                             else{
 
                                 alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString());
                                 //Mensajes(data.message,'error','');
-                            }
+                            }*/
 
                         },
                         error: function (request,a,b) {
