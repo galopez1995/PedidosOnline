@@ -29,5 +29,5 @@ var STEP_SINCRONIZACION=
         //ENTIDAD_PUNTOS_ENVIO
 ];
 
-var DATABASE='PedidosOnline';
+var DATABASE='PedidosOnlineaaaaaaaaaaaaaaaas';
 var DATOS_ENTIDADES_SINCRONIZACION = [];

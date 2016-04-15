@@ -134,7 +134,7 @@ app_angular.controller('appController',['Metodos_erp_terceros','Metodos_t_pedido
         DATOS_ENTIDADES_SINCRONIZACION[i] = JSON.parse(DATOS_ENTIDADES_SINCRONIZACION[i]);
 
         for(var j=0; j < DATOS_ENTIDADES_SINCRONIZACION[i].length; j++) {
-
+        
             if (STEP_SINCRONIZACION[i] == ENTIDAD_PEDIDOS) {
                 Pedido.insert(DATOS_ENTIDADES_SINCRONIZACION[i][j]);
             }
