@@ -107,9 +107,7 @@
 
         <script>
 
-            $(document).ready(function(){
-                localStorage.removeItem('CUR_USER');
-            });
+            localStorage.removeItem('CUR_USER');
 
             $(window).load(function () {
                 $("#DivLoadingPage").fadeOut("slow");
@@ -178,6 +176,7 @@
                         },
                         error: function (request,a,b) {
                             alert('Error Sincronizar '+STEP_SINCRONIZACION[i].toString()+' '+request+' | '+ a+ ' | '+b);
+                            continue;
                             //debugger;
                             //alert(request.responseJSON);
                         }
@@ -216,7 +215,6 @@
                             ProcesadoHiden();
                             Mensajes('Bienvenido', 'success', '');
                             location.href = 'index.html';
-                            //location.href = location.origin + '/PedidosOnline/';
                         }
                         else{
                             ProcesadoHiden();
@@ -225,9 +223,8 @@
 
                     },
                     error: function (request,a,b) {
+                        ProcesadoHiden();
                         alert('Error Login  '+request+' | '+ a+ ' | '+b);
-                        //debugger;
-                        //alert(request.responseJSON);
                     }
                 });
             }
