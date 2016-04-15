@@ -40,7 +40,7 @@ app_angular.controller('appController',['Metodos_erp_terceros','Metodos_t_pedido
 
 
     if (window.localStorage.getItem("CUR_USER") == null || window.localStorage.getItem("CUR_USER")==undefined) {
-        location.href=location.origin+'/PedidosOnline/login.html';
+        location.href='login.html';
     }
 
     if ($routeParams.url == undefined) {
