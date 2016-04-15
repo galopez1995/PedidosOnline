@@ -228,7 +228,7 @@
                     },
                     error: function (request,a,b) {
                         ProcesadoHiden();
-                        alert('Error Login  '+JSON.parse(request)+' | '+ a+ ' | '+b);
+                        alert('Error Login  '+JSON.stringify(request)+' | '+ a+ ' | '+b);
                     }
                 });
             }
