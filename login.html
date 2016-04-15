@@ -148,7 +148,7 @@
 
             function Sincronizar(){
 
-                //alert('Sincronizar');
+                alert('Sincronizar');
 
                 //localStorage.clear();
 
@@ -165,7 +165,7 @@
 
 //                            if(data.message=='OK') {
 
-                               // alert('Sincronizar '+STEP_SINCRONIZACION[i].toString());
+                                alert('Sincronizar '+STEP_SINCRONIZACION[i].toString());
 
                                 localStorage.removeItem(STEP_SINCRONIZACION[i].toString());
                                 localStorage.setItem(STEP_SINCRONIZACION[i].toString(), JSON.stringify(data));
@@ -209,7 +209,7 @@
 
                         if(data.message=='OK') {
 
-                            //alert('Login OK');
+                            alert('Login OK');
 
                             localStorage.removeItem('CUR_USER');
                             localStorage.setItem('CUR_USER', JSON.stringify(data.data));
@@ -221,6 +221,7 @@
                             location.href = 'index.html';
                         }
                         else{
+                            alert('Login <> OK');
                             ProcesadoHiden();
                             Mensajes(data.message,'error','');
                         }
