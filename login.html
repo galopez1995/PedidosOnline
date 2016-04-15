@@ -161,8 +161,8 @@
 
                         },
                         error: function (request) {
-                            debugger;
-                            alert(request.responseJSON);
+                            //debugger;
+                            //alert(request.responseJSON);
                         }
                     });
                 }
@@ -181,7 +181,7 @@
                     contentType: "application/json; charset=utf-8",
                     type: 'get',
                     url: 'http://demos.pedidosonline.co/Mobile/Login?username='+$("#username").val()+'&codigo_empresa='+$("#codigo_empresa").val()+'&pass='+$("#password").val(),
-                    crossDomain : true,
+                    crossDomain: true,
                     //async: false,
                     success: function (data) {
 
@@ -196,7 +196,7 @@
                     },
                     error: function (request) {
                         ProcesadoHiden();
-                        alert(request.responseJSON);
+                        Mensajes('Error al iniciar session.','error','');
                     }
                 });
             }
