@@ -205,7 +205,7 @@
                     async: false,
                     success: function (data) {
 
-                        alert('Login 2');
+                        alert('Login success');
 
                         if(data.message=='OK') {
 
@@ -225,11 +225,10 @@
                             ProcesadoHiden();
                             Mensajes(data.message,'error','');
                         }
-
                     },
                     error: function (request,a,b) {
                         ProcesadoHiden();
-                        alert('Error Login  '+request+' | '+ a+ ' | '+b);
+                        alert('Error Login  '+JSON.parse(request)+' | '+ a+ ' | '+b);
                     }
                 });
             }
